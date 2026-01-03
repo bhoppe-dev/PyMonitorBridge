@@ -2,14 +2,13 @@ import psutil
 import time
 import struct
 # Import logic from our protocol module
-from protocol import initSerialConnection, createMessage
+from protocol import discoverMcuPort, createMessage
 
 # Configuration
-SERIAL_PORT = 'COM3'
 BAUD_RATE = 9600
 
 # Initialize connection
-serialConn = initSerialConnection(SERIAL_PORT, BAUD_RATE)
+serialConn = discoverMcuPort(BAUD_RATE)
 
 if serialConn is None:
     print("Serial port not available. Continuing in simulation mode.")
